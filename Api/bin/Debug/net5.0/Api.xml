@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="M:Api.Controllers.ParceriaController.RetornaLista(System.Nullable{System.DateTime})">
+            <summary>
+            Retornará todas as parcerias cadastradas no controle de parcerias e que a data atual esteja entre a data de início e término.        
+            </summary>
+            <param name="dateTime">Data atual para pesquisa de parcerias.</param>
+            <returns>Retorno de objeto com parcerias.</returns>
+            <response code="200">Retorno com sucesso, no objeto de retorno virá com as parcerias.</response>
+            <response code="400">Em caso de reprovação, retornará um objeto descrevendo qual foi o problema.</response>    
+        </member>
+        <member name="M:Api.Controllers.ParceriaController.PesquisaParceria(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Irá receber um termo para ser pesquisado em qualquer parte dos campos: título e nome da empresa, deve também respeitar a regra, se a data atual esteja entre a data de início e término.
+            </summary>
+            <param name="search">Termo para busca entre título da parceria ou empresa</param>
+            <param name="dateTime">Data atual para pesquisa de parcerias.</param>
+            <returns>Retorno de objeto com parcerias.</returns>
+            <response code="200">Retorno com sucesso, no objeto de retorno virá com as parcerias.</response>
+            <response code="400">Em caso de reprovação, retornará um objeto descrevendo qual foi o problema.</response>    
+        </member>
+        <member name="M:Api.Controllers.ParceriaController.RetornaLista(System.Int32)">
+            <summary>
+            O parâmetro será o código da parceria e deve trazer os campos abaixo em JSON.      
+            </summary>
+            <param name="codigo">Código da parceria.</param>
+            <returns>Retorno de objeto com parcerias.</returns>
+            <response code="200">Retorno com sucesso, no objeto de retorno virá com as parcerias.</response>
+            <response code="400">Em caso de reprovação, retornará um objeto descrevendo qual foi o problema.</response>    
+        </member>
+        <member name="M:Api.Controllers.ParceriaController.CadastrarLike(System.Int32)">
+            <summary>
+            Vai receber o código da parceira e deve fazer o cadastro na tabela “ParceriaLike”.    
+            </summary>
+            <param name="codigo">Código da parceria.</param>
+            <returns>Retorno de objeto com parcerias.</returns>
+            <response code="200">Retorno com sucesso, no objeto de retorno virá com as parcerias.</response>
+            <response code="400">Em caso de reprovação, retornará um objeto descrevendo qual foi o problema.</response>    
+        </member>
+    </members>
+</doc>
