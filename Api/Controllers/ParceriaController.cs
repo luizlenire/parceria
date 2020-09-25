@@ -1,5 +1,7 @@
 ﻿using Api.Models;
 using AppCore.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ParceriaAPI.SeveralFunctions;
 using System;
@@ -14,7 +16,7 @@ namespace Api.Controllers
     {
         #region --> Private properties. <--
 
-        private const string roles = "";
+        private const string roles = TokenService.Fiap;
 
         private Stopwatch stopwatch { get; set; }
 
@@ -67,7 +69,7 @@ namespace Api.Controllers
         /// <response code="400">Em caso de reprovação, retornará um objeto descrevendo qual foi o problema.</response>    
         [HttpGet]
         [Route("retorna-lista")]
-        //[Authorize(Roles = roles, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(Roles = roles, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult RetornaLista(DateTime? dateTime)
         {
             ServiceResponse<List<RetornaListaPesquisaParceria>> serviceResponse = new ServiceResponse<List<RetornaListaPesquisaParceria>>();
@@ -75,7 +77,7 @@ namespace Api.Controllers
             try
             {
                 AppCore.Controllers.Parceria parceria = new AppCore.Controllers.Parceria();
-                List<vParceria> listvParceria = parceria.Get(default, default, dateTime);
+                List<vParceria> listvParceria = parceria.Get(default, default, (dateTime ?? Tools.GetDateTimeNow()));
 
                 if (listvParceria.Count != default)
                 {
@@ -120,7 +122,7 @@ namespace Api.Controllers
         /// <response code="400">Em caso de reprovação, retornará um objeto descrevendo qual foi o problema.</response>    
         [HttpGet]
         [Route("pesquisa-parceria")]
-        //[Authorize(Roles = roles, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(Roles = roles, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult PesquisaParceria(string search, DateTime? dateTime)
         {
             ServiceResponse<List<RetornaListaPesquisaParceria>> serviceResponse = new ServiceResponse<List<RetornaListaPesquisaParceria>>();
@@ -128,7 +130,7 @@ namespace Api.Controllers
             try
             {
                 AppCore.Controllers.Parceria parceria = new AppCore.Controllers.Parceria();
-                List<vParceria> listvParceria = parceria.Get(default, search, dateTime);
+                List<vParceria> listvParceria = parceria.Get(default, search, (dateTime ?? Tools.GetDateTimeNow()));
 
                 if (listvParceria.Count != default)
                 {
@@ -171,7 +173,7 @@ namespace Api.Controllers
         /// <response code="400">Em caso de reprovação, retornará um objeto descrevendo qual foi o problema.</response>    
         [HttpGet]
         [Route("retorna-parceria")]
-        //[Authorize(Roles = roles, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(Roles = roles, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult RetornaLista(int codigo)
         {
             ServiceResponse<List<RetornaParceria>> serviceResponse = new ServiceResponse<List<RetornaParceria>>();
@@ -179,7 +181,7 @@ namespace Api.Controllers
             try
             {
                 AppCore.Controllers.Parceria parceria = new AppCore.Controllers.Parceria();
-                List<vParceria> listvParceria = parceria.Get(codigo, default, default);
+                List<vParceria> listvParceria = parceria.Get(codigo, default, Tools.GetDateTimeNow());
 
                 if (listvParceria.Count != default)
                 {
@@ -223,7 +225,7 @@ namespace Api.Controllers
         /// <response code="400">Em caso de reprovação, retornará um objeto descrevendo qual foi o problema.</response>    
         [HttpPost]
         [Route("cadastrar-like")]
-        //[Authorize(Roles = roles, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(Roles = roles, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult CadastrarLike([FromBody] int codigo)
         {
             ServiceResponse<string> serviceResponse = new ServiceResponse<string>();
@@ -232,8 +234,8 @@ namespace Api.Controllers
             {
                 if (codigo != default)
                 {
-                    AppCore.Controllers.Parceria parceria = new AppCore.Controllers.Parceria();
-                    parceria.Post(codigo);
+                    AppCore.Controllers.ParceriaLike parceriaLike = new AppCore.Controllers.ParceriaLike();
+                    parceriaLike.Post(codigo);
 
                     serviceResponse.success = true;
                     serviceResponse.message = "Requisição processada com sucesso.";

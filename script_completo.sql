@@ -2,7 +2,7 @@ IF EXISTS (SELECT	1
 		   FROM		master.dbo.sysdatabases AS T0 WITH(NOLOCK) 
 		   WHERE	T0.name = 'Teste')
 BEGIN;
-	PRINT 'teste';--DROP DATABASE Teste;
+	DROP DATABASE Teste;
 END;
 ELSE
 BEGIN;
@@ -44,6 +44,17 @@ GO
 
 IF EXISTS (SELECT	1 
 		   FROM		sys.objects		AS T0 WITH(NOLOCK)
+		   WHERE	T0.object_id	= OBJECT_ID('ParceriaLog') AND 
+					T0.type			IN ('U'))
+BEGIN;
+------------------------------------------------
+	DROP TABLE ParceriaLog;
+------------------------------------------------
+END;
+GO
+
+IF EXISTS (SELECT	1 
+		   FROM		sys.objects		AS T0 WITH(NOLOCK)
 		   WHERE	T0.object_id	= OBJECT_ID('ParceriaLike') AND 
 					T0.type			IN ('U'))
 BEGIN;
@@ -52,6 +63,20 @@ BEGIN;
 ------------------------------------------------
 END;
 GO
+
+CREATE TABLE ParceriaLog
+			 (Identifier				BIGINT IDENTITY(1,1)	NOT NULL,
+	          Included					DATETIME				NOT NULL,
+	          Description				NVARCHAR(MAX)			NOT NULL,
+	          DescriptionException		NVARCHAR(MAX)			NULL,
+	          DescriptionInnerException NVARCHAR(MAX)			NULL,
+ CONSTRAINT [PK_Parceria_Log] PRIMARY KEY CLUSTERED 
+(
+	Identifier ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
 
 CREATE TABLE ParceriaLike
 			 (Codigo			INT IDENTITY(1,1)	NOT NULL,

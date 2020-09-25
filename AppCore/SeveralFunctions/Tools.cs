@@ -25,7 +25,7 @@ namespace ParceriaAPI.SeveralFunctions
         {
             if (obj is ExpandoObject) return ((IDictionary<string, object>)obj).ContainsKey(name);
             else return obj.GetType().GetProperty(name) != null;
-        }     
+        }
 
         public static string GetTime(TimeSpan timeSpan)
         {
@@ -64,7 +64,7 @@ namespace ParceriaAPI.SeveralFunctions
                 else return TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
             }
             catch { return DateTime.Now; }
-        }  
+        }
 
         #endregion --> Public static methods. <--
     }

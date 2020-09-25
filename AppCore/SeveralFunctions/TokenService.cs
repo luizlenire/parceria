@@ -12,7 +12,7 @@ namespace ParceriaAPI.SeveralFunctions
     {
         #region --> Public static properties. <--
 
-        public const string Teste = "8e6f6f815b50f474cf0dc22d4f400725";     
+        public const string Fiap = "8e6f6f815b50f474cf0dc22d4f400725";
 
         #endregion --> Public static properties. <--
 
@@ -23,6 +23,8 @@ namespace ParceriaAPI.SeveralFunctions
         #endregion --> Private properties. <--
 
         #region --> Public methods. <--
+
+        public bool Get(string userName, string password) => userName == "usrfiap" && password == "pswfiap";
 
         public string GenerateToken(string userName, string role)
         {
@@ -41,7 +43,7 @@ namespace ParceriaAPI.SeveralFunctions
             SecurityToken securityToken = jwtSecurityTokenHandler.CreateToken(securityTokenDescriptor);
 
             return jwtSecurityTokenHandler.WriteToken(securityToken);
-        }     
+        }
 
         #endregion --> Public methods. <--   
     }

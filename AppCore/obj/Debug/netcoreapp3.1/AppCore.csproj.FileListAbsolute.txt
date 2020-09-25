@@ -7,3 +7,12 @@ C:\Users\luiz.filho\source\repos\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCor
 C:\Users\luiz.filho\source\repos\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.csproj.CoreCompileInputs.cache
 C:\Users\luiz.filho\source\repos\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.dll
 C:\Users\luiz.filho\source\repos\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.pdb
+C:\MyWorkspace_luizlenire\Parceria\AppCore\bin\Debug\netcoreapp3.1\AppCore.deps.json
+C:\MyWorkspace_luizlenire\Parceria\AppCore\bin\Debug\netcoreapp3.1\AppCore.dll
+C:\MyWorkspace_luizlenire\Parceria\AppCore\bin\Debug\netcoreapp3.1\AppCore.pdb
+C:\MyWorkspace_luizlenire\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.csprojAssemblyReference.cache
+C:\MyWorkspace_luizlenire\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.AssemblyInfoInputs.cache
+C:\MyWorkspace_luizlenire\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.AssemblyInfo.cs
+C:\MyWorkspace_luizlenire\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.csproj.CoreCompileInputs.cache
+C:\MyWorkspace_luizlenire\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.dll
+C:\MyWorkspace_luizlenire\Parceria\AppCore\obj\Debug\netcoreapp3.1\AppCore.pdb

@@ -18,7 +18,7 @@ namespace AppCore.Models
         [Column("titulo")]
         public string Titulo { get; set; }
 
-        [Column("descricao")]   
+        [Column("descricao")]
         public string Descricao { get; set; }
 
         [Column("urlpagina")]

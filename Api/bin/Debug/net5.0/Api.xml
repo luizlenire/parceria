@@ -4,6 +4,21 @@
         <name>Api</name>
     </assembly>
     <members>
+        <member name="M:Api.Controllers.Authentication.GenerateToken(System.String,System.String)">
+             <summary>
+             Método para gerar o token de acesso aos métodos da API.
+             </summary>
+             <remarks>
+             Exemplo:
+            {
+            "Username":"usertest",
+            "Password":"passtest"
+            }
+             </remarks>
+             <returns>Retornará um token para ser informado em cada método da API, sem ele, o acesso será negado.</returns>
+             <response code="200">Token gerado com sucesso.</response>
+             <response code="400">Usuário/senha inválidos.</response>          
+        </member>
         <member name="M:Api.Controllers.ParceriaController.RetornaLista(System.Nullable{System.DateTime})">
             <summary>
             Retornará todas as parcerias cadastradas no controle de parcerias e que a data atual esteja entre a data de início e término.        

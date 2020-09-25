@@ -1,0 +1,42 @@
+﻿@model IEnumerable<App.Models.ControleParceria>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="m-1 p-1">
+        <h4 class="bg-primary text-xs-center p-1 text-white">@ViewBag.Message</h4>
+        <table class="table table-sm table-striped">
+            <thead>
+                <tr>
+                    <th>Cód. Parceria</th>
+                    <th>Título</th>
+                    <th>Empresa</th>
+                    <th>Data Início</th>
+                    <th>Data Término</th>
+                    <th>Qtd Likes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CodParceria</td>
+                        <td>@item.Titulo</td>
+                        <td>@item.Empresa</td>
+                        <td>@item.DataInicio</td>
+                        <td>@item.DataTermino</td>
+                        <td>$@item.QtdLikes</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

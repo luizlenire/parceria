@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30509.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{59156FE6-7163-4B19-BEE2-F713F5CE1F6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{59156FE6-7163-4B19-BEE2-F713F5CE1F6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCore", "AppCore\AppCore.csproj", "{23FCEB8A-ABCE-4E99-9F26-849D338E2117}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore", "AppCore\AppCore.csproj", "{23FCEB8A-ABCE-4E99-9F26-849D338E2117}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{7898A153-CC82-4AF4-A3AF-DB5C8679D33F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{23FCEB8A-ABCE-4E99-9F26-849D338E2117}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23FCEB8A-ABCE-4E99-9F26-849D338E2117}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23FCEB8A-ABCE-4E99-9F26-849D338E2117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7898A153-CC82-4AF4-A3AF-DB5C8679D33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7898A153-CC82-4AF4-A3AF-DB5C8679D33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7898A153-CC82-4AF4-A3AF-DB5C8679D33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7898A153-CC82-4AF4-A3AF-DB5C8679D33F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

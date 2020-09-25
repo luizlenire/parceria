@@ -36,15 +36,15 @@ namespace Api
             GlobalAtributtes.TokenExpire = double.Parse(iconfiguration["AppSettings:TokenExpire"]);
             GlobalAtributtes.Timeout = int.Parse(iconfiguration["AppSettings:Timeout"]);
 
-            GlobalAtributtes.DatabaseType = iconfiguration["AppSettings:AmbDatabaseType"] == "1" ? GlobalEnum.DatabaseType.SQLServer :
-                                               iconfiguration["AppSettings:AmbDatabaseType"] == "2" ? GlobalEnum.DatabaseType.MySQL :
-                                               iconfiguration["AppSettings:AmbDatabaseType"] == "3" ? GlobalEnum.DatabaseType.PostgreSQL :
+            GlobalAtributtes.DatabaseType = iconfiguration["AppSettings:DatabaseType"] == "1" ? GlobalEnum.DatabaseType.SQLServer :
+                                               iconfiguration["AppSettings:DatabaseType"] == "2" ? GlobalEnum.DatabaseType.MySQL :
+                                               iconfiguration["AppSettings:DatabaseType"] == "3" ? GlobalEnum.DatabaseType.PostgreSQL :
                                                                                                       GlobalEnum.DatabaseType.SQLServer;
 
-            GlobalAtributtes.Server = iconfiguration["AppSettings:AmbServer"];
-            GlobalAtributtes.Database = iconfiguration["AppSettings:AmbDatabase"];
-            GlobalAtributtes.User = iconfiguration["AppSettings:AmbUser"];
-            GlobalAtributtes.Password = iconfiguration["AppSettings:AmbPassword"];
+            GlobalAtributtes.Server = iconfiguration["AppSettings:Server"];
+            GlobalAtributtes.Database = iconfiguration["AppSettings:Database"];
+            GlobalAtributtes.User = iconfiguration["AppSettings:User"];
+            GlobalAtributtes.Password = iconfiguration["AppSettings:Password"];
 
             responseAPI = new ResponseAPI();
         }
@@ -55,8 +55,6 @@ namespace Api
 
         public void ConfigureServices(IServiceCollection iServiceCollection)
         {
-            //iServiceCollection.AddDbContext<ContextIntegration>();
-
             iServiceCollection.AddControllers();
             iServiceCollection.AddCors(c =>
             {

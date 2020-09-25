@@ -22,8 +22,8 @@ namespace AppCore.Controllers
             using IDbContextTransaction iDbContextTransaction = context.Database.BeginTransaction(IsolationLevel.ReadUncommitted);
 
             List<vParceria> listvParceria = context.vParceria
-                                                   .Where(x => x.DataInicio >= (dateTime ?? Tools.GetDateTimeNow()) &&
-                                                               x.DataTermino <= (dateTime ?? Tools.GetDateTimeNow()) &&
+                                                   .Where(x => (dateTime == default || x.DataInicio <= dateTime) &&
+                                                               (dateTime == default || x.DataTermino >= dateTime) &&
                                                                (search == default || x.Titulo.Contains(search)) &&
                                                                (codigo == default || x.Codigo == codigo))
                                                    .ToList();
@@ -31,8 +31,8 @@ namespace AppCore.Controllers
             if (listvParceria.Count == default)
             {
                 listvParceria = context.vParceria
-                                       .Where(x => x.DataInicio >= (dateTime ?? Tools.GetDateTimeNow()) &&
-                                                   x.DataTermino <= (dateTime ?? Tools.GetDateTimeNow()) &&
+                                       .Where(x => x.DataInicio <= (dateTime ?? Tools.GetDateTimeNow()) &&
+                                                   x.DataTermino >= (dateTime ?? Tools.GetDateTimeNow()) &&
                                                    (search == default || x.Empresa.Contains(search)))
                                        .ToList();
 
@@ -43,10 +43,22 @@ namespace AppCore.Controllers
             return listvParceria;
         }
 
-        public void Post(int codigo)
+        public void Post(Models.Parceria parceria)
         {
             using Context context = new Context();
-            context.Database.ExecuteSqlRaw("spParceriaLike", parameters: codigo);
+            context.Database.ExecuteSqlRaw("spParceria @p0 @p1 @p2 @p3 @p4 @p5 @p6 @p7", 1, parceria.Titulo, parceria.Descricao, parceria.URLPagina, parceria.Empresa, parceria.DataInicio, parceria.DataTermino, parceria.QtdLikes);
+        }
+
+        public void Put(Models.Parceria parceria)
+        {
+            using Context context = new Context();
+            context.Database.ExecuteSqlRaw("spParceria @p0 @p1 @p2 @p3 @p4 @p5 @p6 @p7 @p8", 2, parceria.Codigo, parceria.Titulo, parceria.Descricao, parceria.URLPagina, parceria.Empresa, parceria.DataInicio, parceria.DataTermino, parceria.QtdLikes);
+        }
+
+        public void Delete(Models.Parceria parceria)
+        {
+            using Context context = new Context();
+            context.Database.ExecuteSqlRaw("spParceria @p0 @p1", 3, parceria.Codigo);
         }
 
         #endregion --> Public methods. <--
