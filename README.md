@@ -1,4 +1,4 @@
-﻿# parceria
+﻿# Sistema de gestão de parcerias.
 Repositório para teste da FIAP.
 
 A aplicação foi desenvolvida em .NET Core 5.0, inicialmente, rodando apenas em Microsoft SQL Server conforme requisitado, para a utilização da API, se faz necessário gerar um token, a API possui swagger, o mesmo irá auxiliar de uma forma bem eficaz na utilização da mesma.
@@ -8,6 +8,14 @@ Usuario/senha da API: usrfiap/pswfiap.
 A API tem um healthcheck para verificar a conectividade com o banco de dados, acessar {url}/hc-ui.
 
 As configurações para acesso a base de dados deverá ser parametrizada no appsettings.json.
+
+Todos os métodos solicitados para criação da API, foram criados.
+
+A aplicação foi desenvolvida em MVC .NET CORE 5.0, a aplicação só tem a tela de consulta, não consegui concluir devido a estar realizando esta atividade durante os intervalos de almoço e a noite.
+
+Para utilizar a aplicação, se faz necessário configurar o appsettings.json.
+
+De todos os requisitos da aplicação, só construí a tela de consulta.
 
 O script para criação da base de dados está dividido da seguinte maneira:
 
@@ -38,3 +46,13 @@ Sugestões de mudanças sobre a estrutura de base de dados solicitada:
 6 - Para adequar as nomenclaturas, troquei "ParceiraLike" por "ParceriaLike";
 
 7 - Utilizar o migration, eliminando a necessidade de script e assim, ter uma maior abrangência em qualquer tipo de banco de dados;
+
+De todas as requisições do script para criação da base de dados foram atendidas.
+
+Minha opinião:
+
+1 - Não utilizaria triggers, procedures e views para este projeto, todas as regras e gestão de dados, ficaria na aplicação;
+
+2 - Não utilizaria script para criação da estrutura de dados, usaria o migration;
+
+3 - Criei um class library para centralizar as regras que a API e a aplicação compartilha, mas no caso, eu nem criaria isso, deixaria todos os métodos na API, e a aplicação chamaria os métodos, pois é mais fácil resolver problema de latência do que timeout;
