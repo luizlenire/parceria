@@ -56,3 +56,8 @@ Minha opinião:
 2 - Não utilizaria script para criação da estrutura de dados, usaria o migration;
 
 3 - Criei um class library para centralizar as regras que a API e a aplicação compartilha, mas no caso, eu nem criaria isso, deixaria todos os métodos na API, e a aplicação chamaria os métodos, pois é mais fácil resolver problema de latência do que timeout;
+
+Tempo investido:
+
+24/09 - 2h;
+25/09 - 2h;
